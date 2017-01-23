@@ -1,6 +1,6 @@
 # Setting CALayer speed < 1 drops frames in animation
 
-Sample project to demonstrate this issue.
+Sample project for [rdar://30143339](https://openradar.appspot.com/radar?id=4942901515649024)
 
 ## Summary:
 If a CALayer has a speed set to a value lower than 1, frames are dropped when it animates (unless iOS is displaying a double height status bar)
