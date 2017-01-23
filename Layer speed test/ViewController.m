@@ -10,20 +10,35 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UISwitch *statusBarSwitch;
+
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
+- (IBAction)didTap:(UITapGestureRecognizer *)sender
+{
+  UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+  view.backgroundColor = [UIColor redColor];
+  view.center = [sender locationInView:self.view];
+  view.layer.speed = 0.1f;
+  [self.view addSubview:view];
+  
+  [UIView animateWithDuration:0.25f animations:^{
+    view.center = CGPointMake(view.center.x, -100.0f);
+  } completion:^(BOOL finished) {
+    [view removeFromSuperview];
+  }];
 }
 
-
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+- (IBAction)statusBarSwitchChanged:(id)sender
+{
+  [self setNeedsStatusBarAppearanceUpdate];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+  return self.statusBarSwitch != nil && !self.statusBarSwitch.isOn;
+}
 
 @end
