@@ -8,7 +8,7 @@ If a CALayer has a speed set to a value lower than 1, frames are dropped when it
 ## Steps to Reproduce:
 1. Ensure your iOS device is not in a mode where it would display a double height status bar
 2. Create a UIView
-3. Set its layer’s speed to 0.1f
+3. Set its layer’s speed to 0.1
 4. Add the view to the view hierarchy
 5. Animate the view’s position
 
